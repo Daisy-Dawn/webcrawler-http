@@ -1,4 +1,5 @@
 const {crawlPage} = require('./crawl')
+const {printPages} = require('./sortPages')
 
 async function main() {
     if(process.argv.length < 3) {
@@ -10,9 +11,7 @@ async function main() {
         const baseURL = process.argv[2]
         console.log(`Crawling website ${baseURL}..........`)
         const pages = await crawlPage(baseURL, baseURL, {})
-        for (const page of Object.entries(pages)) {
-            console.log(page);
-        }
+       printPages(pages)
     }
     
     
